@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank you</title>
+  <link rel="stylesheet" href="css/album.css" />
+</head>
+<body>
+<div id="foodquestion">
+  <b>Pour nous ❤️‍🔥 M²</b>
+</div>
+<audio controls autoplay loop>
+  <source src="coup.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<div class="food-selection">
+
+
+    <style>
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      .gallery img {
+        width: 100%;
+        height: auto;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+
+    // Sélection de l'élément dans lequel afficher les images
+    const gallery = document.getElementById('gallery');
+    const loveMessages = [
+      "Tu es la lumière de ma vie.",
+      "Ton sourire fait fondre mon cœur.",
+      "Je ne pourrais jamais me passer de toi.",
+      "Tu es plus belle que toutes les étoiles du ciel.",
+      "Chaque instant avec toi est un cadeau précieux.",
+      "Tu es la reine de mon cœur.",
+      "Je t’aime plus que les mots ne peuvent l’exprimer.",
+      "Avec toi, je me sens complet.",
+      "Ton amour est la plus belle chose qui me soit arrivée.",
+      "Tu es ma muse, mon inspiration.",
+      "Mon cœur t’appartient, pour toujours.",
+      "Je suis le plus chanceux de t’avoir dans ma vie.",
+      "Tu es mon ange gardien.",
+      "Ton regard illumine mes journées.",
+      "Avec toi, tout semble possible.",
+      "Tu es le souffle de ma vie.",
+      "Je t’aime à l’infini.",
+      "Tu es la plus belle personne que j’ai jamais rencontrée.",
+      "Je suis fier de t’aimer chaque jour davantage.",
+      "Chaque battement de mon cœur est pour toi.",
+      "Tu es la raison pour laquelle je me lève le matin.",
+      "Avec toi, j’ai trouvé mon âme sœur.",
+      "Tu es ma plus grande bénédiction.",
+      "Ton amour est mon refuge.",
+      "Je t’aime plus que tout au monde.",
+      "Chaque jour passé à tes côtés est le plus beau de ma vie.",
+      "Tu es la poésie de mon existence.",
+      "Je rêve de toi même les yeux ouverts.",
+      "Avec toi, je me sens invincible.",
+      "Je chérirai notre amour pour toujours.",
+      "Tu es ma meilleure amie et mon amour éternel.",
+      "Mon monde tourne autour de toi.",
+      "Tu es mon doux paradis sur Terre.",
+      "Ton amour remplit mon âme de bonheur.",
+      "Je suis à toi, corps et âme.",
+      "Tu es l’étoile qui guide mes nuits.",
+      "Ton amour est ma force et ma faiblesse.",
+      "Je suis reconnaissant pour chaque moment passé à tes côtés.",
+      "Tu es mon présent, mon futur et mon éternité."
+    ];
+
+    // Fonction pour vérifier si une image existe
+    async function imageExists(url) {
+      try {
+        const response = await fetch(url, { method: 'HEAD' });
+        return response.ok;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    // Parcourir et ajouter les images jusqu'à ce qu'il n'y en ait plus
+    async function loadImages() {
+      let index = 1; // Commence à 1
+      while (true) {
+        const imageUrl = `gallery/${index}.jpeg`;
+        const exists = await imageExists(imageUrl);
+        if (!exists) break; // Arrête si l'image n'existe pas
+
+        const container = document.createElement('div');
+        container.className = 'image-container';
+
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.alt = `Image ${index}`;
+
+        const caption = document.createElement('p');
+        caption.textContent = loveMessages[(index - 1) % loveMessages.length]; // Récupère un message
+
+
+        container.appendChild(img);
+        container.appendChild(caption);
+        gallery.appendChild(container);
+
+        index++; // Passe à l'image suivante
+      }
+    }
+
+    // Charger les images
+    loadImages();
+  </script>
+  </body>
+  </html>

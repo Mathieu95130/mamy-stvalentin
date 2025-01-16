@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sois Mon Valentin</title>
+  <link rel="stylesheet" href="css/valentine.css" />
+</head>
+<body>
+<div id="valentineQuestion"><b>Veux-tu être ma Valentine  ma mamy d'amour de ma vie</b></div>
+<div id="valentineQuestion"><b>(click sur non stp 🙈)</b></div>
+<button class="answerButton" onclick="location.href='thankyou.html'">
+  Oui
+</button>
+<button class="answerButton" id="noButton">Je ne veux pas LAISSE MOI TRKL </button>
+<br />
+<img src="christmas%20tour.jpeg" alt="notre photo" class="responsive" />
+
+<script>
+  document
+          .getElementById("noButton")
+          .addEventListener("click", function () {
+            var yesButton = document.querySelector(
+                    'button[onclick*="thankyou.html"]'
+            );
+            var currentFontSize = parseInt(
+                    window.getComputedStyle(yesButton).fontSize
+            );
+            yesButton.style.fontSize = currentFontSize + 10 + "px"; // Augmenter de 10px
+          });
+</script>
+</body>
+</html>
