@@ -10,12 +10,13 @@ body {
   margin-bottom: 30px;
 }
 .activity-item {
-  display: inline-table;
+  display: inline-grid;
   margin: 10px;
   vertical-align: top;
   color: #ff9494;
 }
 .activity-item img {
+  display: inline-flex;
   height: 200px;
   width: 200px;
   border-radius: 50%;
